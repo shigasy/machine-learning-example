@@ -51,18 +51,19 @@ model.compile(
 plot_model(model, "model.png", show_shapes=True, show_layer_names=True)
 
 # 学習
-model.fit(in_data, out_data, epochs=10000)
+model.fit(in_data, out_data, epochs=100)
 # model.load_weights('weights.hdf5')  # 学習済みの重みデータの読み込み。読み込む場合はfit()不要
 
 # 予測
-# result = model.predict(in_data)             # 出力層の値
-# [[0.52221036 0.47778964]
-#  [0.45873725 0.54126275]
-#  [0.47307363 0.52692634]
-#  [0.53368354 0.46631646]]
-result = model.predict_classes(in_data)   # 出力層の値を分類に変換した値
+result = model.predict(in_data)             # 出力層の値
+# [[0.52221036 0.47778964] 0 の方が重みが大きい
+#  [0.45873725 0.54126275] 1 の方が重みが大きい
+#  [0.47307363 0.52692634] 1 の方が重みが大きい
+#  [0.53368354 0.46631646]] 0 の方が重みが大き良い
+result2 = model.predict_classes(in_data)   # 出力層の値を分類に変換した値
 # [0, 1, 1, 0]
 print(result)
+print(result2)
 
 # 重みの保存
 model.save_weights('weights.hdf5')

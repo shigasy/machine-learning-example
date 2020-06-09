@@ -43,7 +43,7 @@ model.add(Activation('softmax'))  # 活性化関数 足したら1.0の確率に�
 model.compile(
     loss='categorical_crossentropy',      # 損失関数: クロスエントロピー誤差
 
-    # optimizer = 'sgd'                   # SGD（確率的勾配降下法）
+    # optimizer='sgd',                   # SGD（確率的勾配降下法）
     optimizer='adam',                     # Adam
     metrics=['accuracy']  # モデルの精度表示
 )
@@ -51,8 +51,8 @@ model.compile(
 plot_model(model, "model.png", show_shapes=True, show_layer_names=True)
 
 # 学習
-# model.fit(in_data, out_data, epochs=1000)
-model.load_weights('weights.hdf5')  # 学習済みの重みデータの読み込み。読み込む場合はfit()不要
+model.fit(in_data, out_data, epochs=1000)
+# model.load_weights('weights.hdf5')  # 学習済みの重みデータの読み込み。読み込む場合はfit()不要
 
 # 予測
 result = model.predict(in_data)             # 出力層の値

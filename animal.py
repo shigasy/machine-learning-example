@@ -89,8 +89,8 @@ out_data = df['kind']
 
 # 正規化（各データが 0 ～ 1 の範囲になるようにスケール変換します）列ごとに
 # 正規化を行う理由は、出力に依存して、パラメータ間で更新幅に偏りが生じるから
-scaler = MinMaxScaler()
-in_data = scaler.fit_transform(in_data)
+# scaler = MinMaxScaler()
+# in_data = scaler.fit_transform(in_data)
 # in_data = pd.DataFrame(scaler.fit_transform(in_data))
 #            0         1         2         3         4
 # 0   0.000000  1.000000  0.815574  0.844898  0.807843
@@ -225,12 +225,12 @@ test_data = np.array(
     ]
 )
 
-test_data = pd.DataFrame(scaler.transform(test_data))
-test_data = np.array(test_data)
+# test_data = pd.DataFrame(scaler.transform(test_data))
+# test_data = np.array(test_data)
 
 # 予測
-# result = model.predict(test_data)             # 出力層の値
-result = model.predict_classes(test_data)
+result = model.predict(test_data)             # 出力層の値
+# result = model.predict_classes(test_data)
 
 print(result)
 

@@ -8,7 +8,6 @@ from keras.layers.core import Flatten
 
 # モデルそのもの
 from keras.models import Sequential
-from keras.models import model_from_json
 
 # 最適化のアルゴリズム 学習の調整手法
 from keras.optimizers import Adam

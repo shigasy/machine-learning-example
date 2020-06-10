@@ -2,7 +2,7 @@ import glob  # ファイル読み込みに使うやつ
 import numpy as np
 
 # 前処理
-from keras.preprocessing.image import load_img, img_to_array, array_to_img
+from keras.preprocessing.image import load_img, img_to_array
 from keras.preprocessing.image import random_rotation, random_shift, random_zoom
 
 import constant

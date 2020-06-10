@@ -11,11 +11,12 @@ from keras.callbacks import ModelCheckpoint
 import constant
 from build_cnn import build_cnn
 
-# 学習
-# tsnum = テストの数
-
 
 def learning(tsnum=2, nb_epoch=50, batch_size=8, learn_schedule=0.9):
+    """
+    学習
+    tsnum = テストの数
+    """
 
     # Xは画像データ
     # Yは正解ラベル
@@ -97,7 +98,12 @@ def learning(tsnum=2, nb_epoch=50, batch_size=8, learn_schedule=0.9):
     # TODO: 引数調べる
     hist = model.fit(X_TRAIN, y_train, batch_size=batch_size,
                      verbose=1, epochs=nb_epoch, validation_split=valrate)
+
+    # ----------------- 学習モデルの保存 -----------------
     json_string = model.to_json()
     json_string += '#########' + str(constant.CLASS_NAMES)
     open('model.json', 'w').write(json_string)
     model.save_weights('last.hdf5')
+
+
+# learning()

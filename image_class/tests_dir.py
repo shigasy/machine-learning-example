@@ -8,7 +8,7 @@ cn1 = 0
 cn2 = 0
 for imgname in files:
     kind = test_process(imgname)
-    if kind == 1:
+    if kind == 0:
         cn2 += 1
     cn1 += 1
-print("cn2である正答率は" + str(cn2*1.0/cn1) + "です。")  # cn2である割合
+print("cn1と判定した割合は" + str(cn2*1.0/cn1) + "です。")  # cn1である割合
